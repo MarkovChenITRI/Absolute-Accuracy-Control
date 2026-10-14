@@ -1,0 +1,12 @@
+{
+  "id": "wr403",
+  "extends": "mr-j5",
+  "version": "2",
+  "machine": "WR403",
+  "driverProject": "driver/WR403",
+  "axes": ["上台_A軸", "下台_A軸", "下台_B軸", "上台_B軸"],
+  "axesNote": "順序取自 driver/WR403/projectlist.xml；插補軸組合與慣量辨識姿態尚未確認",
+  "interpolated": [],
+  "postures": [],
+  "acceptance": "末端加速度 ≤ 0.3 g"
+}

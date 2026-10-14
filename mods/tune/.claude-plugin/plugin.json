@@ -1,0 +1,7 @@
+{
+  "name": "tune",
+  "displayName": "調機 /tune",
+  "version": "0.8.8",
+  "description": "在輸入框上方以三個分頁顯示調機總覽（驗收項目的技能按鈕與調整階段）、目前階段的標準作業流程原文，以及檢核工程、參數與採樣檔的實驗紀錄，引導晶圓機器人有片取放的伺服調機",
+  "author": { "name": "MarkovChenITRI" }
+}

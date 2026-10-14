@@ -1,0 +1,14 @@
+{
+  "name": "pickplace-tuner",
+  "description": "晶圓機器人有片取放的伺服參數調校 mod",
+  "owner": {
+    "name": "MarkovChenITRI"
+  },
+  "plugins": [
+    {
+      "name": "tune",
+      "source": "./mods/tune",
+      "description": "在輸入框上方以兩個分頁顯示調機總覽與目前階段的標準作業流程原文，引導伺服調機"
+    }
+  ]
+}

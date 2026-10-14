@@ -18,8 +18,11 @@ sandbox-out/*
 # 開發文件與現場資料（只留本機）
 docs/
 
-# MR Configurator2 伺服專案（只留本機）
-driver/
+# 調機資料：各軸的 MR Configurator2 工程、實驗紀錄、參數與採樣檔（只留本機）
+data/
+
+# /tune 目前選擇的機型、軸、階段與任務（每台工程機各自的狀態）
+.tune/
 
 # MR Configurator2 開啟專案時產生的鎖定檔
 *.dup

@@ -10,4 +10,4 @@ This repository uses a single-context domain glossary. Read `CONTEXT.md` before 
 
 ## Local-only directories
 
-`docs/` and `driver/` are excluded from version control. They hold field documents and MR Configurator2 servo projects that exist only on the engineering machine.
+`docs/` and `data/` are excluded from version control. They hold field documents and tuning data (per-axis MR Configurator2 projects, experiment records, parameter and sampling files) that exist only on the engineering machine. The layout of `data/` is specified in `.scratch/data-layout/spec.md`.

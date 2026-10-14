@@ -1,0 +1,4 @@
+{
+  "description": "The /tune hooks module",
+  "modules": ["./register.js"]
+}
