@@ -110,9 +110,3 @@ PickPlace Tuner 將三者對齊到同一筆量測後提供以下分析結果。�
    ```bash
    uv run pyinstaller --noconfirm PickPlace-Tuner.spec
    ```
-
-4. 以 `sandbox-test.wsb` 在沒有 Python 的 Windows Sandbox 驗證執行檔。首次使用需以系統管理員執行下列指令並重新開機：
-
-   ```powershell
-   Enable-WindowsOptionalFeature -Online -FeatureName Containers-DisposableClientVM -All
-   ```
