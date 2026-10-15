@@ -18,7 +18,7 @@ docs/
 data/
 
 # /tune 目前選擇的機型、軸、階段與任務（每台工程機各自的狀態）
-.tune/
+mods/tune/.tune/
 
 # MR Configurator2 開啟專案時產生的鎖定檔
 *.dup

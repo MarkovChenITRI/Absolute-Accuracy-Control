@@ -1,6 +1,6 @@
 import { expect, mock, test } from 'claude-code/testing'
 
-// 測試用的程序定義：基底 + 機型覆寫，結構與 procedures/mr-j5.json、wr403.json 相同（項目較少）
+// 測試用的程序定義：基底 + 機型覆寫，結構與 mods/tune/procedures/mr-j5.json、wr403.json 相同（項目較少）
 const BASE = {
   id: 'mr-j5',
   version: '6',
@@ -197,7 +197,7 @@ test('/tune <機型>：進度檔、各軸紀錄檔、工程檢查都由 mod 自�
   expect(sent[0]).toContain('data/WR403/上台_A軸/工程/')
   expect(sent[0]).toContain('先問工程師這台驅動器帶的是哪幾軸')
   expect(sent[0]).toContain('不要請工程師換插 USB')
-  expect(sent[0]).toContain('不要改 .tune/session.json')
+  expect(sent[0]).toContain('不要改 mods/tune/.tune/session.json')
 
   // AI 建好下台_B軸 之後：mod 不再送東西；目前的軸本來就有工程，維持不動
   Object.assign(w.dirs, projectDirs('下台_B軸'))

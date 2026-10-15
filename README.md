@@ -43,9 +43,11 @@ Claude Code 會協同使用者完成[標準作業流程](docs/標準作業流程
 ```
 Universal-Embodied-SDK
  ├ .claude-plugin/     # 外掛目錄清單，供安裝指令找到 mods/ 底下的 mod。
- ├ mods/               # /tune 的外掛設定、程式碼與測試。
- ├ procedures/         # 調機程序定義：各機型的階段、往復組、多軸關卡與驗收項目（附手冊出處）。
- ├ .tune/              # /tune 目前選擇的機型、軸、階段與實驗組。
+ ├ mods/tune/          # /tune 的全部內容：
+ │  ├ hooks/           #   程式碼
+ │  ├ procedures/      #   調機程序定義：各機型的階段、往復組與驗收項目（附手冊出處）
+ │  ├ tests/           #   測試
+ │  └ .tune/           #   目前選擇的機型、軸、階段與任務；每台工程機各自的狀態，不進版本控制
  ├ app/                # PickPlace Tuner：資料匯入、計算、資料版本與畫面。
  ├ .scratch/           # 規格與工單。
  ├ docs/               # 調校知識庫與現場文件，只存在工程機上，不進版本控制。

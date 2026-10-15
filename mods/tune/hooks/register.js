@@ -1,6 +1,8 @@
 // /tune：晶圓機器人有片取放的伺服參數調機引導。
-// 階段、往復組、驗收項目與每一項的步驟都寫在專案的 procedures/<機型>.json（可 extends 基底），mod 只讀取、顯示與推進；
-// .tune/session.json 只記目前選擇（程序、軸、階段、實驗組）；實驗資料一軸一個封閉迴路，放在
+// mod 的程式、程序定義與狀態都在專案的 mods/tune/ 裡：階段、往復組、驗收項目寫在 mods/tune/procedures/<機型>.json（可 extends 基底），
+// mod 只讀取、顯示與推進；mods/tune/.tune/session.json 只記目前選擇（程序、軸、階段、實驗組）。
+// 路徑以專案為準，不用 $.plugin.root：安裝後執行的是 Claude Code 每個版本各自複製的一份，寫在那裡升版就不見了。
+// 實驗資料不屬於 mod，一軸一個封閉迴路，放在
 // data/<機型>/<軸>/：工程/ 是這一軸的 MR Configurator2 工程，實驗紀錄/<實驗組>/ 裡有紀錄.json（各項狀態 items 與過程 log）、參數/、採樣/。
 // 輸入框上方以三個分頁顯示：調機總覽（驗收項目的技能按鈕與調整階段）、標準作業流程（docs/標準作業流程.md 裡目前階段各項的原文），
 // 以及實驗紀錄（檢核這一軸的工程、這組實驗的參數檔與採樣檔是否存在）；
@@ -8,8 +10,8 @@
 // 面板顯示工程師要做的事與「完成」或選項按鈕，按下後 AI 接著做，全部做完才判定通過或未通過。
 
 const COMMAND = 'tune'
-const STATE = '.tune/session.json'
-const PROCEDURES = 'procedures/'
+const STATE = 'mods/tune/.tune/session.json'
+const PROCEDURES = 'mods/tune/procedures/'
 // 資料目錄：data/<機型>/<軸>/工程/、data/<機型>/<軸>/實驗紀錄/<實驗組>/{紀錄.json, 參數/, 採樣/}
 const DATA = 'data/'
 const DEFAULT_SET = 'A01_伺服調機'
@@ -273,7 +275,7 @@ async function readJson($, path) {
   return JSON.parse(await $.fs.read(path))
 }
 
-// 讀程序定義並展開 extends：先找專案的 procedures/，找不到基底時退回外掛附帶的範本
+// 讀程序定義並展開 extends：先找專案的 mods/tune/procedures/（改了不必重裝），找不到時用安裝副本附帶的那一份（別台電腦直接從 GitHub 安裝時）
 async function loadProcedure($, id, depth) {
   let own
   try {
@@ -1060,7 +1062,7 @@ export function register(on) {
     try {
       await $.command.register({
         name: COMMAND,
-        description: '在輸入框上方顯示調機儀表板，依 procedures/ 的程序定義逐軸、逐階段引導伺服調機',
+        description: '在輸入框上方顯示調機儀表板，依 mods/tune/procedures/ 的程序定義逐軸、逐階段引導伺服調機',
         argumentHint: '[機型，例如 WR403；不寫就沿用上次的]',
       })
     } catch (err) {

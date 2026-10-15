@@ -55,7 +55,7 @@ data/
 | 對象 | 規則 | 例子 |
 |---|---|---|
 | 機型 | 機型代號 | `WR403` |
-| 軸 | 與 `procedures/<機型>.json` 的 `axes` 同名 | `上台_A軸` |
+| 軸 | 與 `mods/tune/procedures/<機型>.json` 的 `axes` 同名 | `上台_A軸` |
 | 一組實驗 | 字母＋兩位流水號＋名稱；流水號在同一軸內不重複使用 | `A01_伺服調機` |
 
 ## 紀錄.json
@@ -64,7 +64,7 @@ data/
 
 ```json
 {
-  "procedure": "procedures/mr-j5.json",
+  "procedure": "wr403",
   "items": {
     "inertia.pb06": { "status": "pass", "step": 9, "value": "PB06 = 3.21", "param": "參數/<存檔時給的名稱>" },
     "gain.pb09": { "status": "waiting", "step": 4 }
@@ -88,10 +88,10 @@ data/
 CSV 的檔名照 MS1811 匯出時的名稱，不修改；CSV 與參數的對應只記在這裡。
 
 - `procedure`：照哪一份程序做。
-- `items`：各項次的狀態、做到第幾步、判定數值。取代 `.tune/session.json` 的 `runs`。
+- `items`：各項次的狀態、做到第幾步、判定數值。取代舊版進度檔的 `runs`。
 - `log`：過程紀錄，一筆一個動作。畫面讀到的數值寫在 `read`，存下的檔案寫在 `file`。
 
-`.tune/session.json` 只留目前選擇：機型、軸、實驗組。mod 用它找出要讀哪一個 `紀錄.json`。
+`mods/tune/.tune/session.json` 只留目前選擇：機型、軸、實驗組。mod 用它找出要讀哪一個 `紀錄.json`。
 
 ## mod 怎麼讀
 
