@@ -1,4 +1,4 @@
-# Universal-Embodied-SDK
+# Absolute-Accuracy-Control
 
 `/tune` 是晶圓機器人有片取放的伺服參數調校 mod，在 Claude Code 中統一調度調機所需的軟體，適用單臂、雙臂及軸數不同的機型（如 WR403、WR503）。調度的軟體如下，對機器人只讀不寫：
 
